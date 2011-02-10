@@ -180,6 +180,8 @@
 		<xsl:value-of select="$newline"/>
 	</xsl:template>
 
+	<!-- this does not work for me when using links -->
+	<!--
 	<xsl:template match="oo:cell">
 		<xsl:text>![</xsl:text>
 		<xsl:value-of select="@refid"/>
@@ -189,7 +191,17 @@
 		<xsl:text>)</xsl:text>
 		<xsl:value-of select="$newline"/>
 	</xsl:template>
-
+	-->
+	
+	<!-- works with .oo3 files -->
+	<xsl:template match="oo:cell">
+		<xsl:text>[</xsl:text>
+		<xsl:value-of select="@name"/>
+		<xsl:text>](</xsl:text>
+		<xsl:value-of select="@href"/>
+		<xsl:text>)</xsl:text>
+		<xsl:value-of select="$newline"/>
+	</xsl:template>
 	
 	<xsl:template match="oo:note/oo:text/oo:p/oo:run/oo:style">
 	</xsl:template>
